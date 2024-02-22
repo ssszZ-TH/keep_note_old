@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keep Notes</title>
+  <style>
+    /* ตัวอย่าง CSS Neon Dark */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #282c34; /* Dark background */
+      color: #fff; /* White text */
+    }
+
+    header {
+      background-color: #34383d; /* Slightly darker header */
+      color: #fff; /* White text */
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      text-shadow: 0 0 5px #e0b0ff; /* Neon text shadow */
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .notes-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .note {
+      border: 1px solid #454950; /* Border with subtle glow */
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 5px #454950; /* Subtle box shadow */
+    }
+
+    .note a {
+      color: #e0b0ff; /* Neon link color */
+      text-decoration: none;
+    }
+
+    .note a:hover {
+      color: #f0c0ff; /* Brighter neon on hover */
+    }
+
+    .new-note-button {
+      background-color: #e0b0ff; /* Neon button  color */
+      color: #282c34; /* Dark text color */
+      padding: 10px 20px;
+      border: none; /* Remove default border */
+      border-radius: 4px;
+      box-shadow: 0 0 5px #e0b0ff; /* Neon button shadow */
+      text-decoration: none;
+      margin-top: 20px;
+      cursor: pointer; /* Change cursor on hover */
+    }
+
+    .new-note-button:hover {
+      background-color: #f0c0ff; /* Brighter neon on hover */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Notes</h1>
+  </header>
+  <main>
+    <ul class="notes-list">
+      {% for note in notes %}
+      <li class="note">
+        <a href="/note/{{ note._id }}">- {{ note.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="/new" class="new-note-button">Create New Note</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <title>Edit Note: {{ note.title }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      color: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 20px 0;
+      text-align: center;
+      text-shadow: 0 0 2px #800080, 0 0 4px #800080, 0 0 6px #800080;
+    }
+
+    form {
+      padding: 20px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: #222;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      height: 200px;
+    }
+
+    button {
+        background-color: #e0b0ff; /* Neon button color  */
+        color: #282c34; /* Dark text color */
+        padding: 10px 20px;
+        border: none; /* Remove default border */
+        border-radius: 4px;
+        box-shadow: 0 0 5px #e0b0ff; /* Neon button shadow */
+        text-decoration: none;
+        margin-top: 20px;
+        cursor: pointer; /* Change cursor on hover */
+    }
+
+    button:hover {
+        background-color: #f0c0ff; /* Brighter neon on hover */
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    a:hover {
+      color: #800080;
+    }
+  </style>
+</head>
+<body>
+  <h1>Edit Note: {{ note.title }}</h1>
+  <form method="POST">
+    <label for="title">Title:</label>
+    <input type="text" name="title" value="{{ note.title }}" required><br>
+    <label for="content">Content:</label>
+    <textarea name="content">{{ note.content }}</textarea><br>
+    <button type="submit">Save</button>
+    <a href="/delete/{{ note._id }}">Delete</a>
+  </form>
+</body>
+</html>
